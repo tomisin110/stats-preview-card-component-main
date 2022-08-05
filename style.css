@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap');
+:root{
+    --very-dark-blue:hsl(233, 47%, 7%);
+    --desaturated-dark-blue:hsl(244, 38%, 16%);
+    --soft-violet:hsl(277, 64%, 61%);
+    --white:hsl(0, 0%, 100%);
+    --transparent-white:hsla(0, 0%, 100%, 0.75);
+    --slightly-transparent-white:hsla(0, 0%, 100%, 0.6);
+    --font-lexend:font-family: 'Lexend Deca', sans-serif;
+
+}
+html{
+    box-sizing: border-box;
+}
+*,*::before,*::after{
+    box-sizing: inherit;
+     margin: 0;
+    padding: 0;
+}
+body{
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    background-color: var(--very-dark-blue);
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    
+}
+.container{
+    max-width: 1020px;
+    margin: 0 auto;
+}
+.wrapper{
+    background-color: var(--desaturated-dark-blue);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 2rem;
+}
+.image-component img{
+    width: 100%;
+    height:100%;
+    object-fit: cover;
+}
+.image-component{
+    position: relative;
+}
+.image-component::after{
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background-color: var(--soft-violet);
+    opacity: .6;
+}
+.text-component{
+    padding: 13%;
+}
+.title{
+    color: var(--transparent-white);
+    font-weight: 700;
+    padding-bottom: 22px;
+}
+.title span{
+    color: var(--soft-violet);
+}
+.sub-title{
+    color: var(--slightly-transparent-white);
+    line-height: 1.8;
+}
+.stats{
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+    padding-top: 60px;
+}
+.stats p.num{
+    color: var(--slightly-transparent-white);
+    font-size: 25px;
+    font-weight: 700;
+    margin-bottom: 7px;
+}
+.stats p{
+    color: var(--slightly-transparent-white);
+}
+
+@media (min-height: 426px) and (max-width:768px){
+    body{
+        font-size: 12px;
+    }
+    .text-component{
+        padding: 12%;
+    }
+    .title{
+        font-size: 22px;
+    }
+    .stats{
+        padding-top: 30px;
+    }
+    .stats p.num{
+        font-size: 17px;
+    }
+}
+
+
+@media (max-width: 425px) {
+    body{
+        text-align:center;
+    }
+    .wrapper{
+        grid-template-columns: 1fr;
+    }
+    .image-component{
+        order: -1;
+    }
+    .text-component{
+        padding: 12% 8%;
+    }
+    .title{
+        font-size: 23px;
+        line-height: 1.4;
+    }
+    .stats{
+        flex-direction: column;
+        padding-top: 30px;
+    }
+    .stats div{
+        padding-top: 20px;
+    }
+}
